@@ -3,6 +3,10 @@ button {
     width: 30px;
     outline: none;
   }
+#clickr {
+	height: 100%;
+	width: 25%;
+}
 
 
 /*   CSS des boutons et de la barre de progression	*/
