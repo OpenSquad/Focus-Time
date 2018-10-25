@@ -1,10 +1,9 @@
 
   // Called when the user clicks on the browser action.
-chrome.browserAction.onClicked.addListener(function(tab) {
-    // No tabs or host permissions needed!
-alert("Site : "+tab.url);
 
-  });
+
+  chrome.tabs.create({ url: chrome.runtime.getURL("dashboard/dashboard.html") });
+
 
   document.addEventListener("DOMContentLoaded", function(){  chrome.tabs.query({currentWindow: true, active: true}, function(tabs){
     alert(tabs[0].url); 
@@ -31,3 +30,27 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
         
     }
   });
+
+
+  // Progression bar and button
+
+function move() {
+    var elem = document.getElementById("loadulation"); 
+    var width = 1;
+    var id = setInterval(frame, 10);
+    function frame() {
+        if (width >= 100) {
+            clearInterval(id);
+        } else {
+            width++; 
+            elem.style.width = width + '%'; 
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    var link= document.getElementById('clickr');
+    //onclick
+    link.addEventListener('click',move);
+});
+// *****************************************\\
