@@ -2,11 +2,12 @@
 <html>
 <head>
 <title>Title of the document</title>
-<!-- <link rel="stylesheet" type="text/css" href="materialize.css"> -->
-	<link rel="stylesheet" type="text/css" href="main.css">
+<link rel="stylesheet" type="text/css" href="main.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
 	<script type="text/javascript" src="background.js"></script>
-	<script type="text/javascript" src="materialize.js"></script>
+	<script type="text/javascript" src="popup.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
 </head>
 
@@ -14,18 +15,33 @@
 <body>
 	<div class="section">
 	<div class="row">
-		<div>
-			<div class="">
-			<input type="text" name="task" class="txtInp">
-			<input type="text" name="task" class="txtInp">
-		</div>
+		<div id="addino">
+			<div class="container">
+      <p>
+        <label for="new-task">Add Item</label><input id="new-task" type="text" placeholder="Activities"><button>Add</button>
+      </p>
+      
+      <h5>Activities for this session</h5>
+      <ul id="incomplete-tasks">
+       
+        
+      </ul>
+      <div class="divider"></div>
+      
+      <h5>Completed</h5>
+      <ul id="completed-tasks">
+        
+      </ul>
+      <div class="divider"></div>
+    </div>
 		</div>
 	</div></div>
-	<div class="section">
 	<div class="containLoad"><div id="cloadulation"><div id="loadulation"></div></div></div>
 	<button class="pascouleur" id="clickr">Finished</button>
 </div>
 
+
+	<button id="dashJump"></button>
     <a id="toclick" href="dashboard/dashboard.html">
 Dashboard
     </a>
