@@ -3,3 +3,32 @@ button {
     width: 30px;
     outline: none;
   }
+
+
+/*   CSS des boutons et de la barre de progression	*/
+.salope {
+	background-color: white;
+	width: 300px;
+	border:2px solid grey;
+	border-radius: 11px;
+	margin: 2px;
+}
+
+
+#cloadulation {
+	width: 100%;
+	background-color: white;
+	border-radius: 11px;
+
+}
+#loadulation {
+	width: 1%;
+	height: 3px;
+	background-color: #5893C1;
+	border-radius: 11px;
+}
+.pascouleur {
+	background-color: white;
+	border-radius: 11px;
+}
+/**************************/

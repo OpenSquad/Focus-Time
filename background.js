@@ -31,3 +31,26 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
         
     }
   });
+
+// Progression bar and button
+
+function move() {
+    var elem = document.getElementById("loadulation"); 
+    var width = 1;
+    var id = setInterval(frame, 10);
+    function frame() {
+        if (width >= 100) {
+            clearInterval(id);
+        } else {
+            width++; 
+            elem.style.width = width + '%'; 
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    var link= document.getElementById('clickr');
+    //onclick
+    link.addEventListener('click',move);
+});
+// *****************************************\\
