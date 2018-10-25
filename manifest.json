@@ -1,0 +1,25 @@
+{
+    "name" :"ProdMania",
+    "version" :"1.0",
+    "description" :"Make me prod",
+    "manifest_version":2,
+    "web_accessible_resources": [
+        "data/info.json"
+    ],
+    "permissions":["activeTab","storage","tabs"],
+    "content_scripts": [
+        {
+          "matches": ["<all_urls>"],
+          "js": ["content.js"]
+        }
+      ],
+    "browser_action":{
+      "default_popup":"popup.html"
+    },
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": true
+      },
+    "manifest_version":2
+    }
+    
