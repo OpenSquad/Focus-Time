@@ -10,7 +10,7 @@ button {
 
 
 /*   CSS des boutons et de la barre de progression	*/
-.salope {
+.containLoad {
 	background-color: white;
 	width: 300px;
 	border:2px solid grey;
@@ -18,6 +18,20 @@ button {
 	margin: 2px;
 }
 
+
+.txtInp{
+	background-color: #F5FBEF;
+	border-radius: 11px;
+	transition:0.3s;
+	opacity: 0.6;
+
+}
+.txtInp:hover {
+	opacity: 1;
+	-webkit-transition-delay:0.3s;
+	background-color: #eceff1;
+
+}
 
 #cloadulation {
 	width: 100%;
