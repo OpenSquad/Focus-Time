@@ -2,7 +2,7 @@
   // Called when the user clicks on the browser action.
 
 
-  chrome.tabs.create({ url: chrome.runtime.getURL("dashboard/dashboard.html") });
+  // chrome.tabs.create({ url: chrome.runtime.getURL("dashboard/dashboard.html") });
 
 
   document.addEventListener("DOMContentLoaded", function(){  chrome.tabs.query({currentWindow: true, active: true}, function(tabs){
