@@ -3,6 +3,7 @@
 <head>
 <title>Title of the document</title>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="dashboard.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,42 +14,146 @@
 <body>
 
 
-
-        <nav>
-                <div class="nav-wrapper">
+        <nav style="margin-bottom: 50px;">
+                <div class="navbar-fixed blue lighten-1">
                   <a href="#" class="brand-logo center">ProdMe</a>
-                  <ul class="left">
-                    <li>  <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a></li>
-                  </ul>
+                    <a href="#" data-target="slide-out" class="left sidenav-trigger" style="z-index: 99999;">Menu</a>
+                  
                 </div>
               </nav>
                     
 
         <ul id="slide-out" class="sidenav">
-          <li><div class="user-view">
-            <div class="background">
-              <img src="images/office.jpg">
-            </div>
-            <a href="#user"><img class="circle" src="images/yuna.jpg"></a>
-            <a href="#name"><span class="white-text name">John Doe</span></a>
-            <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
-          </div></li>
-          <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-          <li><a href="#!">Second Link</a></li>
-          <li><div class="divider"></div></li>
-          <li><a class="subheader">Subheader</a></li>
-          <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+          <li> <a href="#sessions">Sessions</a></li>
+          <li><a href="#bookmarks">Bookmarks</a></li>
+          <li><a href="#statistics">Statistics</a></li>
         </ul>
 
 
 
 
 
+        <div class="container">
+                <div class="row">        
+          
+        <!-- couleurs :
+        #42a5f5 blue lighten-1
+        #0097a7 cyan darken-2
+
+        -->
+       <!--==============================    CONTENU PRINCIPAL     ==============================================-->
+      <!--====================    SESSIONS          =========================-->
+   
+      <h1>Sessions</h1>
+       <div class="row" id="sessions" >
+            <ul class="collapsible">
+                    <li>
+                      <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
+                      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                    </li>
+                    <li>
+                      <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
+                      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                    </li>
+                    <li>
+                      <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
+                      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                    </li>
+                  </ul>
+            <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+</div>      
 
 
-    <button id="toclick">
-The content of the document......
-</p>
+      <!--====================    BOOKMARKS          =========================-->
+      <div class="divider"></div>
+<div class="row" id="bookmarks">
+        <h1>Bookmarks</h1>
+</div>      
+        <div class="row">
+                <ul class="collapsible">
+                        <li>
+                          <div class="collapsible-header">First</div>
+                          <div class="collapsible-body"></div>
+                        </li>
+                        <li>
+                          <div class="collapsible-header">Second</div>
+                          <div class="collapsible-body"></div>
+                        </li>
+                        <li>
+                          <div class="collapsible-header">Third</div>
+                          <div class="collapsible-body"></div>
+                        </li>
+                      </ul>
+              </div>
+              <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+      </div>
+
+      <!--====================    STATISTICS          =========================-->
+      <div class="divider"></div>
+<div class="row" id="statistics">
+        <h1>Statistics</h1>
+</div>      
+<div id="statics-card" class="row z-depth-5">
+<div class="col s6">
+    Facebook
+        <div class="progress">
+                <div class="determinate" style="width: 70%"></div>
+            </div>
+            Twitter
+            <div class="progress">
+                    <div class="determinate" style="width: 10%"></div>
+                </div>
+                Github
+                <div class="progress">
+                        <div class="determinate" style="width: 5%"></div>
+                    </div>
+                    Gmail
+                    <div class="progress">
+                            <div class="determinate" style="width: 2%"></div>
+                        </div>
+                        Facebook
+                        <div class="progress">
+                                <div class="determinate" style="width: 70%"></div>
+                            </div>
+                            Twitter
+                            <div class="progress">
+                                    <div class="determinate" style="width: 10%"></div>
+                                </div>
+                                Github
+                                <div class="progress">
+                                        <div class="determinate" style="width: 5%"></div>
+                                    </div>
+                                    Gmail
+                                    <div class="progress">
+                                            <div class="determinate" style="width: 2%"></div>
+                                        </div>
+                                        Facebook
+                                        <div class="progress">
+                                                <div class="determinate" style="width: 70%"></div>
+                                            </div>
+                                            Twitter
+                                            <div class="progress">
+                                                    <div class="determinate" style="width: 10%"></div>
+                                                </div>
+                                                Github
+                                                <div class="progress">
+                                                        <div class="determinate" style="width: 5%"></div>
+                                                    </div>
+                                                    Gmail
+                                                    <div class="progress">
+                                                            <div class="determinate" style="width: 2%"></div>
+                                                        </div>
+</div>
+<div class="col s6">
+<img src="graphe.png" style="height:100%;width:100%;">
+
+</div>
+</div>
+              </div>
+
+</div>
+
+
 </body>
 
 </html>
