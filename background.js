@@ -32,8 +32,6 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
   });
 
 
-  // Progression bar and button
-
 function move() {
     var elem = document.getElementById("loadulation"); 
     var width = 1;
