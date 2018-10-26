@@ -35,20 +35,6 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
   });
 
 
-function move() {
-    var elem = document.getElementById("loadulation"); 
-    var width = 1;
-    var id = setInterval(frame, 10);
-    function frame() {
-        if (width >= 100) {
-            clearInterval(id);
-        } else {
-            width++; 
-            elem.style.width = width + '%'; 
-        }
-    }
-}
-
 
 var nextEndTimeToUse = 0;
 
@@ -77,11 +63,6 @@ function getMoreHistory(callback) {
   });
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    var link= document.getElementById('clickr');
-    //onclick
-    link.addEventListener('click',move);
-});
 
 function ValidURL(str) {
 return str.includes('.');

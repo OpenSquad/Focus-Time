@@ -10,6 +10,24 @@ alert("Site : "+tab.url);
   });
 
 };
+function move() {
+    var elem = document.getElementById("loadulation"); 
+    var width = 1;
+    var id = setInterval(frame, 10);
+    function frame() {
+        if (width >= 100) {
+            clearInterval(id);
+        } else {
+            width++; 
+            elem.style.width = width + '%'; 
+        }
+    }
+}
+document.addEventListener('DOMContentLoaded', function() {
+    var link= document.getElementById('clickr');
+    //onclick
+    link.addEventListener('click',move);
+});
 
 // *******  tout doux liste logic  *********\\
 var taskInput=document.getElementById("new-task");//Add a new task.
@@ -39,6 +57,7 @@ var createNewTaskElement=function(taskString){
 
     //Each elements, needs appending
     checkBox.type="checkbox";
+    checkBox.id="chkbx"
     editInput.type="text";
 
     editButton.innerText="Edit";//innerText encodes special characters, HTML does not.
@@ -147,7 +166,7 @@ var ajaxRequest=function(){
 //Set the click handler to the addTask function.
 addButton.onclick=addTask;
 addButton.addEventListener("click",addTask);
-addButton.addEventListener("click",ajaxRequest);
+// addButton.addEventListener("click",ajaxRequest);
 
 
 var bindTaskEvents=function(taskListItem,checkBoxEventHandler){
@@ -201,4 +220,8 @@ document.addEventListener('DOMContentLoaded', function(){
   junk.onclick=function(){chrome.tabs.create({url: "dashboard/dashboard.html"});}
 
 })
+
+
+
+
 
