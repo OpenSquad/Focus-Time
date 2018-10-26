@@ -21,7 +21,7 @@
 Just clone it :
 
 ```
-git clone https://github.com/OpenSquad/Chrome_Extension
+git clone https://github.com/OpenSquad/Focus-Time
 ```
 * Activate developer mode in chrome.
 * Finally add the project folder as an unpacked extension.
