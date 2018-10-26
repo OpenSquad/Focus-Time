@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
       var s="";
       for(i in message.items[0])
       {s=s+message.items[0][i]+"\n";}
-      if(message.items!==undefined){alert('message : '+s);draw(message.items[0]);}
+      if(message.items!==undefined){draw(message.items[0]);}
   });
 
 

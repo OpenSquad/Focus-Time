@@ -5,12 +5,6 @@
   // chrome.tabs.create({ url: chrome.runtime.getURL("dashboard/dashboard.html") });
 
 
-  document.addEventListener("DOMContentLoaded", function(){  chrome.tabs.query({currentWindow: true, active: true}, function(tabs){
-    alert(tabs[0].url); 
-    chrome.tabs.executeScript({
-        code: 'alert("Tab : "+tab.url)'
-      });
-});})
 
 
 

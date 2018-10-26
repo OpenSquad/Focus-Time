@@ -1,5 +1,5 @@
 //alert("Tab : "+location.href);
-if(location.href.includes("openclassroom")){
+/*if(location.href.includes("openclassroom")){
     chrome.storage.sync.get(['count'], function(result) {
         saveChanges(2);     
         chrome.runtime.sendMessage({closeThis: true});
@@ -8,7 +8,7 @@ if(location.href.includes("openclassroom")){
 }
 chrome.history.search({ text: "", startTime: 0, maxResults: 0 }, 
     items => console.log(items));
-
+*/
 
 function saveChanges(val) {
     // Get a value saved in a form.
