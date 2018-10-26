@@ -5,7 +5,15 @@
   // chrome.tabs.create({ url: chrome.runtime.getURL("dashboard/dashboard.html") });
 
 
-
+  function saveData(data,callback)
+  {
+      chrome.storage.sync.set({stock: data}, function() {callback();});
+  }
+  function getData(key,callback)
+  {
+      chrome.storage.sync.get([key], function(result) {callback(result);});
+  }
+  
 
 
 
@@ -13,8 +21,14 @@
 chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
     if(message.historic)
     {
-         getMoreHistory(function(hist){chrome.runtime.sendMessage({items: hist})});
-        
+         getMoreHistory(function(hist){chrome.runtime.sendMessage({items: hist});});
+
+    }
+    if(message.storage)
+    {
+        saveData('key',3,function(){
+            getData('key',function(result){chrome.runtime.sendMessage({key:result.key})})
+        })
     }
     
     if(message.closeThis) 
