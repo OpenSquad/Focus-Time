@@ -5,13 +5,15 @@
 ## Preview
  <div align="center">
 <h3> Dashboard</h3>
-  <img src="https://github.com/OpenSquad/Chrome_Extension/blob/master/screenshots/home.png?raw=true" alt="Home" style="border-style: dotted;border-color:##0a111c;"></img><br/>
+  <img src="https://github.com/OpenSquad/Focus-Time/blob/master/screenshots/home.png?raw=true" alt="Home" style="border-style: dotted;border-color:##0a111c;"></img><br/>
   <h3> Creating new customizable bookmarks</h3>
-  <img src="https://github.com/OpenSquad/Chrome_Extension/blob/master/screenshots/creation.png?raw=true" alt="Creation of new bookmark" style="border-style: dotted;border-color:##0a111c;"></img><br/>
+  <img src="https://github.com/OpenSquad/Focus-Time/blob/master/screenshots/bookmark.png?raw=true" alt="Modification of new bookmark" style="border-style: dotted;border-color:##0a111c;"></img><br/>
+  <h3> Modifying bookmark </h3>
+  <img src="https://github.com/OpenSquad/Focus-Time/blob/master/screenshots/creation.png?raw=true" alt="Creation of new bookmark" style="border-style: dotted;border-color:##0a111c;"></img><br/>
   <h3> The popup </h3>
-  <img src="https://github.com/OpenSquad/Chrome_Extension/blob/master/screenshots/popup.png?raw=true" alt="Creation of new bookmark" style="border-style: dotted;border-color:##0a111c;"></img><br/>
+  <img src="https://github.com/OpenSquad/Focus-Time/blob/master/screenshots/popup.png?raw=true" alt="Popup" style="border-style: dotted;border-color:##0a111c;"></img><br/>
   <h3> User's browsing statistics </h3>
-  <img src="https://github.com/OpenSquad/Chrome_Extension/blob/master/screenshots/statistics.png?raw=true" alt="Stastics" style="border-style: dotted;border-color:##0a111c;"></img><br/></div>
+  <img src="https://github.com/OpenSquad/Focus-Time/blob/master/screenshots/statistics.png?raw=true" alt="Stastics" style="border-style: dotted;border-color:##0a111c;"></img><br/></div>
 
 
 ### Installing
