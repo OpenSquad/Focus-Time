@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Title of the document</title>
+<title>Your Dashboard</title>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link href="dashboard.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -48,19 +48,19 @@
        <div class="row" id="sessions" >
             <ul class="collapsible">
                     <li>
-                      <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
-                      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                      <div class="collapsible-header collapsible-header-session">First</div>
+                      <div class="collapsible-body collapsible-body-session"></div>
                     </li>
                     <li>
-                      <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
-                      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                      <div class="collapsible-header collapsible-header-session">Second</div>
+                      <div class="collapsible-body collapsible-body-session"></div>
                     </li>
                     <li>
-                      <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
-                      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                      <div class="collapsible-header collapsible-header-session">Third</div>
+                      <div class="collapsible-body collapsible-body-session"></div>
                     </li>
                   </ul>
-            <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+            <a class="btn-floating btn-large waves-effect waves-light red btn modal-trigger" href="#new-session"><i class="material-icons">add</i></a>
 </div>      
 
 
@@ -72,20 +72,20 @@
         <div class="row">
                 <ul class="collapsible">
                         <li>
-                          <div class="collapsible-header">First</div>
-                          <div class="collapsible-body"></div>
+                          <div class="collapsible-header collapsible-header-bookmark">First</div>
+                          <div class="collapsible-body collapsible-body-bookmark"></div>
                         </li>
                         <li>
-                          <div class="collapsible-header">Second</div>
-                          <div class="collapsible-body"></div>
+                          <div class="collapsible-header collapsible-header-bookmark">Second</div>
+                          <div class="collapsible-body collapsible-body-bookmark"></div>
                         </li>
                         <li>
-                          <div class="collapsible-header">Third</div>
-                          <div class="collapsible-body"></div>
+                          <div class="collapsible-header collapsible-header-bookmark">Third</div>
+                          <div class="collapsible-body collapsible-body-bookmark"></div>
                         </li>
                       </ul>
               </div>
-              <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+              <a class="btn-floating btn-large waves-effect waves-light red btn modal-trigger" href="#new-bookmark"><i class="material-icons">add</i></a>
       </div>
 
       <!--====================    STATISTICS          =========================-->
@@ -154,6 +154,77 @@
 </div>
 
 
+
+<!--===================   MODALS  ======================-->
+<div id="new-session" class="modal bottom-sheet">
+        <div class="modal-content">
+            <h3>Creating a new Session</h3>
+                <form><div class="input-field col s12">
+                        <i class="material-icons prefix">textsms</i>
+                                <input type="text" id="autocomplete-input" class="autocomplete">
+                                <label for="autocomplete-input">Name</label>
+                                <div>
+                                
+                                </div>
+                        <div class="input-field col s12">
+                                  <textarea id="textarea1" class="materialize-textarea"></textarea>
+                                  <label for="textarea1">Concrened websites</label>
+                                </div>
+                                </div>
+                                <div class="input-field col s12">
+                                          <textarea id="textarea1" class="materialize-textarea"></textarea>
+                                          <label for="textarea1">White List</label>
+                                        </div>
+                                <div class="input-field col s12">
+                                  <textarea id="textarea1" class="materialize-textarea"></textarea>
+                                  <label for="textarea1">Black List</label>
+                                </div>
+                                Timer<br/>
+                                <p class="range-field">
+                            <input type="range" id="test5" min="0" max="100" />
+                              </p>
+                              </div><a class="waves-effect waves-light btn">button</a></form>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+      </div>
+          
+      
+      <div id="new-bookmark" class="modal bottom-sheet">
+            <div class="modal-content">
+                <h3>Creating a new Bookmark</h3>
+                    <form><div class="input-field col s12">
+                            <i class="material-icons prefix">textsms</i>
+                                    <input type="text" id="autocomplete-input" class="autocomplete" >
+                                    <label for="autocomplete-input">Name</label>
+                                    <div>
+                                    
+                                    </div>
+                            <div class="input-field col s12">
+                                      <textarea id="textarea1" class="materialize-textarea"></textarea>
+                                      <label for="textarea1">Concrened websites</label>
+                                    </div>
+                                    </div>
+                                    <div class="input-field col s12">
+                                              <textarea id="textarea1" class="materialize-textarea"></textarea>
+                                              <label for="textarea1">White List</label>
+                                            </div>
+                                    <div class="input-field col s12">
+                                      <textarea id="textarea1" class="materialize-textarea"></textarea>
+                                      <label for="textarea1">Black List</label>
+                                    </div>
+                                    Timer<br/>
+                                    <p class="range-field">
+                                    <input type="range" id="test5" min="0" max="100" />
+                                  </p>
+                                  </div><a class="waves-effect waves-light btn">button</a></form>
+            </div>
+            <div class="modal-footer">
+              <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+            </div>
+          </div>
+                  
 </body>
 
 </html>
