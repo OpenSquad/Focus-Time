@@ -4,7 +4,12 @@ Your personnal extension to boost your browser usage.
 
 ## Preview
  <div align="center">
-  <img src="https://github.com/OpenSquad/Chrome_Extension/blob/master/screenshots/home.png?raw=true" alt="Home" style="border-style: dotted;border-color:##0a111c;"></img><br/><img src="https://github.com/OpenSquad/Chrome_Extension/blob/master/screenshots/creation.png?raw=true" alt="Creation of new bookmark" style="border-style: dotted;border-color:##0a111c;"></img><br/><img src="https://github.com/OpenSquad/Chrome_Extension/blob/master/screenshots/statistics.png?raw=true" alt="Stastics" style="border-style: dotted;border-color:##0a111c;"></img><br/></div>
+  ### Dashboard
+  <img src="https://github.com/OpenSquad/Chrome_Extension/blob/master/screenshots/home.png?raw=true" alt="Home" style="border-style: dotted;border-color:##0a111c;"></img><br/>
+  ### Creating new customizable bookmark
+  <img src="https://github.com/OpenSquad/Chrome_Extension/blob/master/screenshots/creation.png?raw=true" alt="Creation of new bookmark" style="border-style: dotted;border-color:##0a111c;"></img><br/>
+  ### Statistics of user's browsing
+  <img src="https://github.com/OpenSquad/Chrome_Extension/blob/master/screenshots/statistics.png?raw=true" alt="Stastics" style="border-style: dotted;border-color:##0a111c;"></img><br/></div>
 
 
 ### Installing
