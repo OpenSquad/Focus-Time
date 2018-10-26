@@ -1,7 +1,12 @@
+var displayed=false;
 document.addEventListener('DOMContentLoaded', function() {
     var test=document.getElementById("test");
     test.onclick=function(){alert("HI");chrome.runtime.sendMessage({storage: true});}
     var elems = document.querySelectorAll('.sidenav');
+    var sem=document.getElementsByClassName("hid");
+    var activator=document.getElementById("more");
+
+    activator.onclick=function(activator){var activator=document.getElementById("more");alert("activator : "+activator.textContent);for(var i in sem){sem[i].style.display=(activator.textContent.includes("Show More"))?"initial":"none";}if(activator.textContent.includes("Show More")){activator.textContent="Show Less";}else{activator.textContent="Show More"}}
     var instances = M.AutoInit();
     chrome.runtime.sendMessage({historic: true});
     var collapses=document.querySelectorAll(".collapsible-body-bookmark");
@@ -98,12 +103,25 @@ var sorted = Object.keys(cnts).sort( function(a,b) {
     return cnts[b] - cnts[a];
 });
 var b;
+var coum=0;
 for(b in sorted)
 {
+    
+    if(b<7){
+        console.log("position : "+b+" name : "+sorted[b]);
     sou.innerHTML=sou.innerHTML+sorted[b]+
         "<div class=\"progress\">"+
                 "<div class=\"determinate\" style=\"width: "+(count(entry,sorted[b])/entry.length)*100+"%\"></div>"+
             "</div>"
+    }
+    else{
+        sou.innerHTML=sou.innerHTML+"<div class=\"hid\" style=\"display:none;\">"+sorted[b]+
+        "<div class=\"progress\">"+
+                "<div class=\"determinate\" style=\"width: "+(count(entry,sorted[b])/entry.length)*100+"%\"></div>"+
+            "</div></div>"
+    }
+coum++;
+            
 }
 
 var ctx = document.getElementById("cherry").getContext('2d');
@@ -116,42 +134,26 @@ for(x=0;x<l1.length;x++)
     l2.push(count(entry,l1[x]));
 }
 
-var myChart = new Chart(ctx, {
-type: 'bar',
-data: {
-    labels: l1,
+var colors=[];
+ for (var i in l2) {
+     console.log(getRandomColor());
+    colors.push(getRandomColor());
+ }
+data = {
     datasets: [{
-        label: '# Ratio of visits',
-        data: l2,
-        backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(255, 159, 64, 0.2)'
-        ],
-        borderColor: [
-            'rgba(255,99,132,1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)'
-        ],
-        borderWidth: 1
-    }]
-},
-options: {
-    scales: {
-        yAxes: [{
-            ticks: {
-                beginAtZero:true
-            }
-        }]
-    }
-}
+        data: l2.slice(0,6),
+        backgroundColor:colors.slice(0,6)
+    }],
+
+    // These labels appear in the legend and in the tooltips when hovering different arcs
+    labels:l1.slice(0,6),
+
+};
+var myChart =  new Chart(ctx, {
+    type: 'doughnut',
+    data: data
 });
+
 
 
 
@@ -168,3 +170,12 @@ options: {
   function uniq(a) {
     return Array.from(new Set(a));
  }
+
+ function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++ ) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
