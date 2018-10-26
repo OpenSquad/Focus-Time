@@ -13,6 +13,9 @@
           "js": ["content.js"]
         }
       ],
+      "icons": { "16": "logos/logoF_t.PNG",
+        "48": "logos/logoF_t.PNG",
+       "128": "logos/logoF_t.PNG" },
     "browser_action":{
       "default_popup":"popup.html"
     },

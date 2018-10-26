@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var whitelistsession=document.getElementById("whitelist-session").value;
         var blacklistsession=document.getElementById("blacklist-session").value;
          var timersession=document.getElementById("timer-session").value;
-    alert(namesession+"\n"+whitelistsession+"\n"+blacklistsession+"\n"+timersession);
+
     chrome.runtime.sendMessage({session:{'name':namesession,'whitelist':whitelistsession,'blacklist':blacklistsession,'timer':timersession}});
         }
 
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var sem=document.getElementsByClassName("hid");
     var activator=document.getElementById("more");
 
-    activator.onclick=function(activator){var activator=document.getElementById("more");alert("activator : "+activator.textContent);for(var i in sem){sem[i].style.display=(activator.textContent.includes("Show More"))?"initial":"none";}if(activator.textContent.includes("Show More")){activator.textContent="Show Less";}else{activator.textContent="Show More"}}
+    activator.onclick=function(activator){var activator=document.getElementById("more");for(var i in sem){sem[i].style.display=(activator.textContent.includes("Show More"))?"initial":"none";}if(activator.textContent.includes("Show More")){activator.textContent="Show Less";}else{activator.textContent="Show More"}}
     var instances = M.AutoInit();
     chrome.runtime.sendMessage({historic: true});
     var collapses=document.querySelectorAll(".collapsible-body-bookmark");
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
       for(i in message.items[0])
       {s=s+message.items[0][i]+"\n";}
       if(message.items!==undefined){draw(message.items[0]);}
-      if(message.key!==undefined){alert("key : "+message.key);}
+
     }
     if(message.sessions!==undefined){
         for(var i in message.sessions)
@@ -64,10 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
             insertBookmark(message.bookmarks[i]);
         }
     }
-    if(message.key!==undefined)
-    {
-        alert("KEY : "+message.key);
-    }
+
   });
 
 
@@ -197,11 +194,9 @@ function insertSession(session){
 
 function insertAllBookmarks()
 {
-    alert("AllBookmarks");
     chrome.runtime.sendMessage({getbookmarks:true});
 }
 function insertBookmark(bookmark){
-    alert("Insert Bookmark");
     var main=document.getElementById("collapsible-bookmarks");
  
     var html="<li>"+

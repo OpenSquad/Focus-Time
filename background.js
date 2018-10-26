@@ -88,6 +88,10 @@ function Permited(site)
 
 
 chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
+    if(message.activatesession!==undefined)
+    {
+        activesession=message.activatesession;
+    }
     if(message.historic)
     {
          getMoreHistory(function(hist){chrome.runtime.sendMessage({items: hist});});

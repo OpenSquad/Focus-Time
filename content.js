@@ -15,11 +15,10 @@ function saveChanges(val) {
     var theValue = val;
     // Check that there's some code there.
     if (!theValue) {
-      alert('Error: No value specified');
+
     }
     // Save it using the Chrome extension storage API.
     chrome.storage.sync.set({'value': theValue}, function() {
       // Notify that we saved.
-      alert('Settings saved');
     });
   }
