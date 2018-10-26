@@ -1,14 +1,14 @@
-<div align="center"><h1>Focus Time</h1></div>
+<div align="center"><h1>Focus Time</h1><br/><p>Your personnal extension to boost your browser usage.</p></div>
 
-Your personnal extension to boost your browser usage.
+
 
 ## Preview
  <div align="center">
-  ### Dashboard
+<h3> Dashboard</h3>
   <img src="https://github.com/OpenSquad/Chrome_Extension/blob/master/screenshots/home.png?raw=true" alt="Home" style="border-style: dotted;border-color:##0a111c;"></img><br/>
-  ### Creating new customizable bookmark
+  <h3> Creating new customizable bookmark</h3>
   <img src="https://github.com/OpenSquad/Chrome_Extension/blob/master/screenshots/creation.png?raw=true" alt="Creation of new bookmark" style="border-style: dotted;border-color:##0a111c;"></img><br/>
-  ### Statistics of user's browsing
+  <h3> Statistics of user's browsing </h3>
   <img src="https://github.com/OpenSquad/Chrome_Extension/blob/master/screenshots/statistics.png?raw=true" alt="Stastics" style="border-style: dotted;border-color:##0a111c;"></img><br/></div>
 
 
