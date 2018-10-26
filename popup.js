@@ -57,13 +57,13 @@ var createNewTaskElement=function(taskString){
 
     //Each elements, needs appending
     checkBox.type="checkbox";
-    checkBox.id="chkbx"
+    checkBox.id="new-task"
     editInput.type="text";
 
     editButton.innerText="Edit";//innerText encodes special characters, HTML does not.
-    editButton.className="edit";
+    editButton.className="edit btn-small zre9 byed padderul";
     deleteButton.innerText="Delete";
-    deleteButton.className="delete";
+    deleteButton.className="delete btn-small zre9 biyed";
 
 
 
@@ -165,8 +165,7 @@ var ajaxRequest=function(){
 
 //Set the click handler to the addTask function.
 addButton.onclick=addTask;
-addButton.addEventListener("click",addTask);
-// addButton.addEventListener("click",ajaxRequest);
+
 
 
 var bindTaskEvents=function(taskListItem,checkBoxEventHandler){
