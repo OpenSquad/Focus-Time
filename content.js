@@ -1,11 +1,11 @@
 //alert("Tab : "+location.href);
-/*if(location.href.includes("openclassroom")){
+
     chrome.storage.sync.get(['count'], function(result) {
         saveChanges(2);     
-        chrome.runtime.sendMessage({closeThis: true});
+        chrome.runtime.sendMessage({closeThis: location.href});
       });
 
-}
+/*
 chrome.history.search({ text: "", startTime: 0, maxResults: 0 }, 
     items => console.log(items));
 */

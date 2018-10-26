@@ -35,7 +35,7 @@
 
 
         <div class="container">
-          <button id="test">TEST</button>
+      
                 <div class="row">        
           
         <!-- couleurs :
@@ -60,19 +60,7 @@
         <h1>Bookmarks</h1>
 </div>      
         <div class="row">
-                <ul class="collapsible">
-                        <li>
-                          <div class="collapsible-header collapsible-header-bookmark">First</div>
-                          <div class="collapsible-body collapsible-body-bookmark"></div>
-                        </li>
-                        <li>
-                          <div class="collapsible-header collapsible-header-bookmark">Second</div>
-                          <div class="collapsible-body collapsible-body-bookmark"></div>
-                        </li>
-                        <li>
-                          <div class="collapsible-header collapsible-header-bookmark">Third</div>
-                          <div class="collapsible-body collapsible-body-bookmark"></div>
-                        </li>
+                <ul class="collapsible" id="collapsible-bookmarks">
                       </ul>
               </div>
               <a class="btn-floating btn-large waves-effect waves-light cyan darken-2 btn modal-trigger" href="#new-bookmark"><i class="material-icons">add</i></a>
@@ -108,13 +96,6 @@
                         <i class="material-icons prefix">textsms</i>
                                 <input id="name-session" type="text" id="autocomplete-input" class="autocomplete">
                                 <label for="autocomplete-input">Name</label>
-                                <div>
-                                
-                                </div>
-                        <div class="input-field col s12">
-                                  <textarea id="websites-session" class="materialize-textarea"></textarea>
-                                  <label for="textarea1">Concerned websites</label>
-                                </div>
                                 </div>
                                 <div class="input-field col s12">
                                           <textarea id="whitelist-session" class="materialize-textarea"></textarea>
@@ -138,29 +119,29 @@
                 <h3>Creating a new Bookmark</h3>
                     <form><div class="input-field col s12">
                             <i class="material-icons prefix">textsms</i>
-                                    <input type="text" id="autocomplete-input" class="autocomplete" >
-                                    <label for="autocomplete-input">Name</label>
+                                    <input type="text" id="name-bookmark" class="autocomplete" >
+                                    <label for="name-bookmark">Name</label>
                                     <div>
                                     
                                     </div>
                             <div class="input-field col s12">
-                                      <textarea id="textarea1" class="materialize-textarea"></textarea>
-                                      <label for="textarea1">Concrened websites</label>
+                                      <textarea id="concerned-bookmark" class="materialize-textarea"></textarea>
+                                      <label for="concerned-bookmark">Concerned websites</label>
                                     </div>
                                     </div>
                                     <div class="input-field col s12">
-                                              <textarea id="textarea1" class="materialize-textarea"></textarea>
-                                              <label for="textarea1">White List</label>
+                                              <textarea id="whitelist-bookmark" class="materialize-textarea"></textarea>
+                                              <label for="whitelist-bookmark">White List</label>
                                             </div>
                                     <div class="input-field col s12">
-                                      <textarea id="textarea1" class="materialize-textarea"></textarea>
-                                      <label for="textarea1">Black List</label>
+                                      <textarea id="blacklist-bookmark" class="materialize-textarea"></textarea>
+                                      <label for="blacklist-bookmark">Black List</label>
                                     </div>
                                     Timer<br/>
                                     <p class="range-field">
-                                    <input type="range" id="test5" min="0" max="100" />
+                                    <input type="range" id="timer-bookmark" min="0" max="100" />
                                   </p>
-                                  </div><a class="waves-effect waves-light btn cyan darken-2 center-align">button</a></form>
+                                  </div><a class="waves-effect waves-light btn cyan darken-2 center-align" id="save-bookmark">Save</a></form>
             </div>
           </div>
                   

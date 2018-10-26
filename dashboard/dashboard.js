@@ -2,8 +2,10 @@ var displayed=false;
 document.addEventListener('DOMContentLoaded', function() {
     var test=document.getElementById("test");
     insertAllSessions();
+    insertAllBookmarks();
     // NEW SESSION
     var n=document.getElementById("button-new-session");
+    var m=document.getElementById("save-bookmark");
     n.onclick=function(){
         var namesession=document.getElementById("name-session").value;
         var whitelistsession=document.getElementById("whitelist-session").value;
@@ -14,8 +16,18 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
 
+
+        m.onclick=function(){
+
+            var namebookmark=document.getElementById("name-bookmark").value;
+            var whitelistbookmark=document.getElementById("whitelist-bookmark").value;
+            var blacklistbookmark=document.getElementById("blacklist-bookmark").value;
+            var concernedbookmark=document.getElementById("concerned-bookmark").value;
+             var timerbookmark=document.getElementById("timer-bookmark").value;
+        chrome.runtime.sendMessage({bookmark:{'name':namebookmark,'whitelist':whitelistbookmark,'blacklist':blacklistbookmark,'timer':timerbookmark,'concerned':concernedbookmark}});
+            }
     // 
-    test.onclick=function(){alert("HI");chrome.runtime.sendMessage({storage: true});}
+
     var elems = document.querySelectorAll('.sidenav');
     var sem=document.getElementsByClassName("hid");
     var activator=document.getElementById("more");
@@ -44,6 +56,12 @@ document.addEventListener('DOMContentLoaded', function() {
         for(var i in message.sessions)
         {
             insertSession(message.sessions[i]);
+        }
+    }
+    if(message.bookmarks!==undefined){
+        for(var i in message.bookmarks)
+        {
+            insertBookmark(message.bookmarks[i]);
         }
     }
     if(message.key!==undefined)
@@ -157,16 +175,54 @@ function insertSession(session){
         <input type=\"text\" id=\"autocomplete-input\" class=\"autocomplete\" value=\""+session.name+"\">\
         <label for=\"autocomplete-input\">Name</label>\
         <div class=\"input-field col s12\">\
-                  <textarea id=\"textarea1\" class=\"materialize-textarea\"\ value=\""+session.whitelist+"\"></textarea>\
+                  <textarea id=\"textarea1\" class=\"materialize-textarea\"\ >"+session.whitelist+"</textarea>\
                 <label for=\"textarea1\">White List</label>\
                 </div>\
         <div class=\"input-field col s12\">\
-          <textarea id=\"textarea1\" class=\"materialize-textarea\" value=\""+session.blacklist+"\"></textarea>\
+          <textarea id=\"textarea1\" class=\"materialize-textarea\" >"+session.blacklist+"</textarea>\
           <label for=\"textarea1\">Black List</label>\
         </div>\
         Timer<br/>\
         <p class=\"range-field\">\
         <input type=\"range\" id=\"test5\" min=\"0\" max=\"100\" value=\""+session.timer+"\"/>\
+      </p>\
+      </div><a class=\"waves-effect waves-light btn\">button</a></form></div>\
+      </div>\
+      </li>";
+      main.innerHTML=main.innerHTML+html;
+}
+
+
+
+
+function insertAllBookmarks()
+{
+    alert("AllBookmarks");
+    chrome.runtime.sendMessage({getbookmarks:true});
+}
+function insertBookmark(bookmark){
+    alert("Insert Bookmark");
+    var main=document.getElementById("collapsible-bookmarks");
+ 
+    var html="<li>"+
+    "<div class=\"collapsible-header collapsible-header-session\" style=\"justify-content:space-between;\">"+bookmark.name+"\
+    <a class=\"waves-effect waves-light btn\">Open</a>\
+    <div class=\"collapsible-body collapsible-body-session\"> \
+ <form><div class=\"input-field col s12\">\
+<i class=\"material-icons prefix\">textsms</i>\
+        <input type=\"text\" id=\"autocomplete-input\" class=\"autocomplete\" value=\""+bookmark.name+"\">\
+        <label for=\"autocomplete-input\">Name</label>\
+        <div class=\"input-field col s12\">\
+                  <textarea id=\"textarea1\" class=\"materialize-textarea\"\ >"+bookmark.whitelist+"</textarea>\
+                <label for=\"textarea1\">White List</label>\
+                </div>\
+        <div class=\"input-field col s12\">\
+          <textarea id=\"textarea1\" class=\"materialize-textarea\" >"+bookmark.blacklist+"</textarea>\
+          <label for=\"textarea1\">Black List</label>\
+        </div>\
+        Timer<br/>\
+        <p class=\"range-field\">\
+        <input type=\"range\" id=\"test5\" min=\"0\" max=\"100\" value=\""+bookmark.timer+"\"/>\
       </p>\
       </div><a class=\"waves-effect waves-light btn\">button</a></form></div>\
       </div>\

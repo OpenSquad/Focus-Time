@@ -5,17 +5,72 @@ class session{
         this.timer=timer;
         this.blacklist=blacklist;
         this.whitelist=whitelist;
-        this.status="activated"
     }
     permited(site)
-    {return true;}
+    {
+        var i=0;
+        if(this.whitelist.length>0)
+        {
+            for(i in this.whitelist)
+            {
+                if(this.whitelist[i].includes(site)) return true;
+            }
+        }
+        if(this.blacklist.length>0)
+        {
+            for(i in this.blacklist)
+            {
+                if(this.blacklist[i].includes(site)) return false;
+            }
+        }
+        if(this.blacklist.length>0) return true;
+        if(this.whitelist.length>0) return false;
+    }
 }
+
+
+class bookmark{
+    constructor(name,timer,blacklist,whitelist,concerned)
+    {
+        this.name=name;
+        this.timer=timer;
+        this.blacklist=blacklist;
+        this.whitelist=whitelist;
+        this.concerned=concerned;
+    }
+    permited(site)
+    {
+        var i=0;
+        if(this.whitelist.length>0)
+        {
+            for(i in this.whitelist)
+            {
+                if(this.whitelist[i].includes(site)) return true;
+            }
+        }
+        if(this.blacklist.length>0)
+        {
+            for(i in this.blacklist)
+            {
+                if(this.blacklist[i].includes(site)) return false;
+            }
+        }
+        if(this.blacklist.length>0) return true;
+        if(this.whitelist.length>0) return false;
+    }
+}
+
   // Called when the user clicks on the browser action.
 
-var sessions = []
+var sessions = [];
+var bookmarks = [];
 var activesession;
 var activebookmark;
 var warnings=[];
+function Permited(site)
+{
+    return (activesession.permited(site)&&activebookmark.permited(site));
+}
   // chrome.tabs.create({ url: chrome.runtime.getURL("dashboard/dashboard.html") });
 
 
@@ -36,15 +91,22 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
     if(message.historic)
     {
          getMoreHistory(function(hist){chrome.runtime.sendMessage({items: hist});});
-
     }
     if(message.session)
     {
         sessions.push(new session(message.session.name,message.session.timer,message.session.blacklist,message.session.whitelist))
     }
+    if(message.bookmark)
+    {
+        bookmarks.push(new bookmark(message.bookmark.name,message.bookmark.timer,message.bookmark.blacklist,message.bookmark.whitelist,message.bookmark.concerned))
+    }
     if(message.getsessions)
     {
         chrome.runtime.sendMessage({sessions:sessions});
+    }
+    if(message.getbookmarks)
+    {
+        chrome.runtime.sendMessage({bookmarks:bookmarks});
     }
     if(message.storage)
     {
@@ -53,19 +115,12 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
         })
     }
     
-    if(message.closeThis) 
+    if(message.closeThis!==undefined) 
     {
+        if(Permited(message.closeThis)==false)
+        {
         chrome.tabs.remove(sender.tab.id);
-        chrome.storage.sync.get(['count'], function(result) {
-            if(result.key==0 || result.key==undefined)
-            {
-            chrome.storage.sync.set({'count': 0});
-            }
-            else
-            {
-                chrome.storage.sync.set({'count': result.key+1});                
-            }
-        });
+    }
         
     }
   });
