@@ -57,8 +57,10 @@ var createNewTaskElement=function(taskString){
 
     //Each elements, needs appending
     checkBox.type="checkbox";
-    checkBox.id="new-task"
+    checkBox.id="tough"
+    checkBox.className="berouit"
     editInput.type="text";
+    label.for="tough"
 
     editButton.innerText="Edit";//innerText encodes special characters, HTML does not.
     editButton.className="edit btn-small zre9 byed padderul";
@@ -210,7 +212,11 @@ var bindTaskEvents=function(taskListItem,checkBoxEventHandler){
 
 //Shange edit to save when you are in edit mode.
 // *****************************************\\
+var instances = M.AutoInit();
+// ************ message**********************\\
+var sessionCrt=document.getElementById('sessionValue')
 
+chrome.runtime.sendMessage({actualSession:sessionCrt})
 
 
 
@@ -219,6 +225,26 @@ document.addEventListener('DOMContentLoaded', function(){
   junk.onclick=function(){chrome.tabs.create({url: "dashboard/dashboard.html"});}
 
 })
+// var car=1;
+// if (car){
+// 	move();
+// }
+// document.addEventListener('DOMContentLoaded',function()){
+// var inputsC=document.querySelector('berouit');
+// var clikd = document.getElementsByClassName('clikd');
+
+
+// 	clikd.onclick=function(){
+// 		for (inputsC in document.getElementsByClassName('row')){
+// 		if (inputsC.checked == true){
+// 		move();}else {
+// 			console.log("A MARCHE PASLOL");
+// 		}
+// 	}}
+	
+
+	
+
 
 
 
