@@ -1,10 +1,10 @@
 <div align="center"><h1>Focus Time</h1></div>
 
-Steven is AI-powered platform for sentiment analysis in beta. Users are able to evaluate their sentences and improve the AI itself with their comments.
+Your personnal extension to boost your browser usage.
 
 ## Preview
  <div align="center">
-  <img src="https://github.com/OpenSquad/Chrome_Extension/blob/master/static/home.png?raw=true" alt="Home" style="border-style: dotted;border-color:##0a111c;"></img><img src="https://github.com/OpenSquad/Chrome_Extension/blob/master/screenshots/creation.png?raw=true" alt="Creation of new bookmark" style="border-style: dotted;border-color:##0a111c;"></img><img src="https://github.com/OpenSquad/Chrome_Extension/blob/master/screenshots/statistics.png?raw=true" alt="Stastics" style="border-style: dotted;border-color:##0a111c;"></img></div>
+  <img src="https://github.com/OpenSquad/Chrome_Extension/blob/master/sscreenshots/home.png?raw=true" alt="Home" style="border-style: dotted;border-color:##0a111c;"></img><img src="https://github.com/OpenSquad/Chrome_Extension/blob/master/screenshots/creation.png?raw=true" alt="Creation of new bookmark" style="border-style: dotted;border-color:##0a111c;"></img><img src="https://github.com/OpenSquad/Chrome_Extension/blob/master/screenshots/statistics.png?raw=true" alt="Stastics" style="border-style: dotted;border-color:##0a111c;"></img></div>
 
 
 ### Installing
