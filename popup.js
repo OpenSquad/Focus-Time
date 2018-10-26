@@ -212,6 +212,17 @@ var bindTaskEvents=function(taskListItem,checkBoxEventHandler){
 //prevent creation of empty tasks.
 
 //Shange edit to save when you are in edit mode.
+document.getElementById('tough4').onchange=function(){var elem = document.getElementById("loadulation"); 
+    var width = 1;
+    var id = setInterval(frame, 10);
+    function frame() {
+        if (width >= 100) {
+            clearInterval(id);
+        } else {
+            width++; 
+            elem.style.width = width + '%'; 
+        }
+    }}
 // *****************************************\\
 var instances = M.AutoInit();
 // ************ message**********************\\
@@ -259,6 +270,7 @@ document.addEventListener('DOMContentLoaded', function(){
   junk.onclick=function(){chrome.tabs.create({url: "dashboard/dashboard.html"});}
 
 })
+
 
 	
 
