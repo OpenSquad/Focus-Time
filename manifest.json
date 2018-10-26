@@ -6,7 +6,7 @@
     "web_accessible_resources": [
         "data/info.json"
     ],
-    "permissions":["activeTab","storage","tabs"],
+    "permissions":["activeTab","storage","tabs","history"],
     "content_scripts": [
         {
           "matches": ["<all_urls>"],

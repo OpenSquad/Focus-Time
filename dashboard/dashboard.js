@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.sidenav');
     var instances = M.AutoInit();
+    chrome.runtime.sendMessage({historic: true});
     var collapses=document.querySelectorAll(".collapsible-body-bookmark");
     var titles=document.querySelectorAll(".collapsible-header-bookmark")
     for(i in collapses)
@@ -64,4 +65,10 @@ document.addEventListener('DOMContentLoaded', function() {
       "</div><a class=\"waves-effect waves-light btn\">button</a></form>";
         collapses[i].innerHTML=html;
     }
+  });
+  chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
+      var s="";
+      for(i in message.items[0])
+      {s=s+message.items[0][i]+"\n";}
+      if(message.items!==undefined){alert('message : '+s);}
   });

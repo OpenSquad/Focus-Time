@@ -6,6 +6,8 @@ if(location.href.includes("openclassroom")){
       });
 
 }
+chrome.history.search({ text: "", startTime: 0, maxResults: 0 }, 
+    items => console.log(items));
 
 
 function saveChanges(val) {
