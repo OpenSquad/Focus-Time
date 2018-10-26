@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
+    var test=document.getElementById("test");
+    test.onclick=function(){alert("HI");chrome.runtime.sendMessage({storage: true});}
     var elems = document.querySelectorAll('.sidenav');
     var instances = M.AutoInit();
     chrome.runtime.sendMessage({historic: true});
@@ -67,14 +69,22 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
   chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
-      var s="";
+    if(message.items!==undefined)
+    {  
+    var s="";
       for(i in message.items[0])
       {s=s+message.items[0][i]+"\n";}
       if(message.items!==undefined){draw(message.items[0]);}
+      if(message.key!==undefined){alert("key : "+message.key);}
+    }
+    if(message.key!==undefined)
+    {
+        alert("KEY : "+message.key);
+    }
   });
 
 
-
+  
 
   function draw(entry){
 
@@ -90,7 +100,6 @@ var sorted = Object.keys(cnts).sort( function(a,b) {
 var b;
 for(b in sorted)
 {
-    console.log("count : "+count(entry,sorted[b])+" | length : "+entry.length+" | resultat : "+count(entry,sorted[b])/entry.length);
     sou.innerHTML=sou.innerHTML+sorted[b]+
         "<div class=\"progress\">"+
                 "<div class=\"determinate\" style=\"width: "+(count(entry,sorted[b])/entry.length)*100+"%\"></div>"+
