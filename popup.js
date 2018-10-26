@@ -55,18 +55,13 @@ var createNewTaskElement=function(taskString){
 
     label.innerText=taskString;
 
-    // function fragile(callback){ var lilVar=20;
-    // for (var i=0;i<lilVar.length;i++){
-    // 	var labeler="tough"+i;
-    
-    // }	callback(labeler);}
 
     //Each elements, needs appending
     checkBox.type="checkbox";
-    checkbox.id=labeler
+    checkBox.id="tough";
     checkBox.className="berouit";
     editInput.type="text";
-    label.setAttribute("for",labeler);
+    label.setAttribute("for","tough");
 
     editButton.innerText="Edit";//innerText encodes special characters, HTML does not.
     editButton.className="edit btn-small zre9 byed padderul";
@@ -221,8 +216,9 @@ var bindTaskEvents=function(taskListItem,checkBoxEventHandler){
 var instances = M.AutoInit();
 // ************ message**********************\\
 var sessionCrt=document.getElementById('sessionValue')
+sessionCrt.onchange = function(){chrome.runtime.sendMessage({activatesession:sessionCrt})}
 
-chrome.runtime.sendMessage({actualsession:sessionCrt})
+
 
 
 
@@ -231,22 +227,7 @@ document.addEventListener('DOMContentLoaded', function(){
   junk.onclick=function(){chrome.tabs.create({url: "dashboard/dashboard.html"});}
 
 })
-// var car=1;
-// if (car){
-// 	move();
-// }
-// document.addEventListener('DOMContentLoaded',function()){
-// var inputsC=document.querySelector('berouit');
-// var clikd = document.getElementsByClassName('clikd');
 
-
-// 	clikd.onclick=function(){
-// 		for (inputsC in document.getElementsByClassName('row')){
-// 		if (inputsC.checked == true){
-// 		move();}else {
-// 			console.log("A MARCHE PASLOL");
-// 		}
-// 	}}
 	
 
 	
