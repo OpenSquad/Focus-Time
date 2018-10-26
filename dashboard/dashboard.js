@@ -70,5 +70,92 @@ document.addEventListener('DOMContentLoaded', function() {
       var s="";
       for(i in message.items[0])
       {s=s+message.items[0][i]+"\n";}
-      if(message.items!==undefined){alert('message : '+s);}
+      if(message.items!==undefined){alert('message : '+s);draw(message.items[0]);}
   });
+
+
+
+
+  function draw(entry){
+
+sou=document.getElementById("bars");
+var arr = entry;
+var cnts = arr.reduce( function (obj, val) {
+    obj[val] = (obj[val] || 0) + 1;
+    return obj;
+}, {} );
+var sorted = Object.keys(cnts).sort( function(a,b) {
+    return cnts[b] - cnts[a];
+});
+var b;
+for(b in sorted)
+{
+    console.log("count : "+count(entry,sorted[b])+" | length : "+entry.length+" | resultat : "+count(entry,sorted[b])/entry.length);
+    sou.innerHTML=sou.innerHTML+sorted[b]+
+        "<div class=\"progress\">"+
+                "<div class=\"determinate\" style=\"width: "+(count(entry,sorted[b])/entry.length)*100+"%\"></div>"+
+            "</div>"
+}
+
+var ctx = document.getElementById("cherry").getContext('2d');
+var l1=[];
+l1=sorted;
+var l2=[];
+var x=0;
+for(x=0;x<l1.length;x++)
+{
+    l2.push(count(entry,l1[x]));
+}
+
+var myChart = new Chart(ctx, {
+type: 'bar',
+data: {
+    labels: l1,
+    datasets: [{
+        label: '# Ratio of visits',
+        data: l2,
+        backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)'
+        ],
+        borderColor: [
+            'rgba(255,99,132,1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)'
+        ],
+        borderWidth: 1
+    }]
+},
+options: {
+    scales: {
+        yAxes: [{
+            ticks: {
+                beginAtZero:true
+            }
+        }]
+    }
+}
+});
+
+
+
+  }
+
+  function count(array,el){
+    var count = 0;
+    for(var i = 0; i < array.length; ++i){
+        if(array[i] == el)
+            count++;
+    }
+    return count;
+  }
+  function uniq(a) {
+    return Array.from(new Set(a));
+ }

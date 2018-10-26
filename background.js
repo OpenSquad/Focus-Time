@@ -76,7 +76,7 @@ function getMoreHistory(callback) {
       var r=item.visitCount;
       var j=0;
       for(j=0;j<r;j++)
-{            names.push(url.host);}
+{            if(ValidURL(url.host)) names.push(url.host);}
     }
 
     callback([names,counts]);
@@ -89,5 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
     link.addEventListener('click',move);
 });
 
-
+function ValidURL(str) {
+return str.includes('.');
+  }
 // *****************************************\\
