@@ -1,6 +1,20 @@
 var displayed=false;
 document.addEventListener('DOMContentLoaded', function() {
     var test=document.getElementById("test");
+    insertAllSessions();
+    // NEW SESSION
+    var n=document.getElementById("button-new-session");
+    n.onclick=function(){
+        var namesession=document.getElementById("name-session").value;
+        var whitelistsession=document.getElementById("whitelist-session").value;
+        var blacklistsession=document.getElementById("blacklist-session").value;
+         var timersession=document.getElementById("timer-session").value;
+    alert(namesession+"\n"+whitelistsession+"\n"+blacklistsession+"\n"+timersession);
+    chrome.runtime.sendMessage({session:{'name':namesession,'whitelist':whitelistsession,'blacklist':blacklistsession,'timer':timersession}});
+        }
+
+
+    // 
     test.onclick=function(){alert("HI");chrome.runtime.sendMessage({storage: true});}
     var elems = document.querySelectorAll('.sidenav');
     var sem=document.getElementsByClassName("hid");
@@ -11,68 +25,12 @@ document.addEventListener('DOMContentLoaded', function() {
     chrome.runtime.sendMessage({historic: true});
     var collapses=document.querySelectorAll(".collapsible-body-bookmark");
     var titles=document.querySelectorAll(".collapsible-header-bookmark")
-    for(i in collapses)
-    {
-        var html="<form><div class=\"input-field col s12\">"+
-"<i class=\"material-icons prefix\">textsms</i>"+
-        "<input type=\"text\" id=\"autocomplete-input\" class=\"autocomplete\" value=\""+titles[i].textContent+"\">"+
-        "<label for=\"autocomplete-input\">Name</label>"+
-        "<div>"+
-        
-        "</div>"+
-"<div class=\"input-field col s12\">"+
-          "<textarea id=\"textarea1\" class=\"materialize-textarea\"></textarea>"+
-          "<label for=\"textarea1\">Concrened websites</label>"+
-        "</div>"+
-        "</div>"+
-        "<div class=\"input-field col s12\">"+
-                  "<textarea id=\"textarea1\" class=\"materialize-textarea\"></textarea>"+
-                  "<label for=\"textarea1\">White List</label>"+
-                "</div>"+
-        "<div class=\"input-field col s12\">"+
-          "<textarea id=\"textarea1\" class=\"materialize-textarea\"></textarea>"+
-          "<label for=\"textarea1\">Black List</label>"+
-        "</div>"+
-        "Timer<br/>"+
-        "<p class=\"range-field\">"+
-        "<input type=\"range\" id=\"test5\" min=\"0\" max=\"100\" />"+
-      "</p>"+
-      "</div><a class=\"waves-effect waves-light btn\">button</a></form>";
-        collapses[i].innerHTML=html;
-    }
-
-    var collapses=document.querySelectorAll(".collapsible-body-session");
-    var titles=document.querySelectorAll(".collapsible-header-session")
-    for(i in collapses)
-    {
-        var html="<form><div class=\"input-field col s12\">"+
-"<i class=\"material-icons prefix\">textsms</i>"+
-        "<input type=\"text\" id=\"autocomplete-input\" class=\"autocomplete\" value=\""+titles[i].textContent+"\">"+
-        "<label for=\"autocomplete-input\">Name</label>"+
-        "<div>"+
-        
-        "</div>"+
-"<div class=\"input-field col s12\">"+
-          "<textarea id=\"textarea1\" class=\"materialize-textarea\"></textarea>"+
-          "<label for=\"textarea1\">Concrened websites</label>"+
-        "</div>"+
-        "</div>"+
-        "<div class=\"input-field col s12\">"+
-                  "<textarea id=\"textarea1\" class=\"materialize-textarea\"></textarea>"+
-                  "<label for=\"textarea1\">White List</label>"+
-                "</div>"+
-        "<div class=\"input-field col s12\">"+
-          "<textarea id=\"textarea1\" class=\"materialize-textarea\"></textarea>"+
-          "<label for=\"textarea1\">Black List</label>"+
-        "</div>"+
-        "Timer<br/>"+
-        "<p class=\"range-field\">"+
-        "<input type=\"range\" id=\"test5\" min=\"0\" max=\"100\" />"+
-      "</p><br/>TO DO LIST<br/>"+
-      "</div><a class=\"waves-effect waves-light btn\">button</a></form>";
-        collapses[i].innerHTML=html;
-    }
+    
   });
+
+
+
+
   chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
     if(message.items!==undefined)
     {  
@@ -81,6 +39,12 @@ document.addEventListener('DOMContentLoaded', function() {
       {s=s+message.items[0][i]+"\n";}
       if(message.items!==undefined){draw(message.items[0]);}
       if(message.key!==undefined){alert("key : "+message.key);}
+    }
+    if(message.sessions!==undefined){
+        for(var i in message.sessions)
+        {
+            insertSession(message.sessions[i]);
+        }
     }
     if(message.key!==undefined)
     {
@@ -178,4 +142,34 @@ var myChart =  new Chart(ctx, {
         color += letters[Math.floor(Math.random() * 16)];
     }
     return color;
+}
+function insertAllSessions()
+{
+    chrome.runtime.sendMessage({getsessions:true});
+}
+function insertSession(session){
+    var main=document.getElementById("collapse-sessions");
+    var html="<li>"+
+    "<div class=\"collapsible-header collapsible-header-session\" style=\"justify-content:space-between;\">"+session.name+"<a href=\"#!\" class=\"right secondary-content\"><i\ class=\"material-icons\">grade</i></a></div>\
+    <div class=\"collapsible-body collapsible-body-session\"> \
+ <form><div class=\"input-field col s12\">\
+<i class=\"material-icons prefix\">textsms</i>\
+        <input type=\"text\" id=\"autocomplete-input\" class=\"autocomplete\" value=\""+session.name+"\">\
+        <label for=\"autocomplete-input\">Name</label>\
+        <div class=\"input-field col s12\">\
+                  <textarea id=\"textarea1\" class=\"materialize-textarea\"\ value=\""+session.whitelist+"\"></textarea>\
+                <label for=\"textarea1\">White List</label>\
+                </div>\
+        <div class=\"input-field col s12\">\
+          <textarea id=\"textarea1\" class=\"materialize-textarea\" value=\""+session.blacklist+"\"></textarea>\
+          <label for=\"textarea1\">Black List</label>\
+        </div>\
+        Timer<br/>\
+        <p class=\"range-field\">\
+        <input type=\"range\" id=\"test5\" min=\"0\" max=\"100\" value=\""+session.timer+"\"/>\
+      </p>\
+      </div><a class=\"waves-effect waves-light btn\">button</a></form></div>\
+      </div>\
+      </li>";
+      main.innerHTML=main.innerHTML+html;
 }

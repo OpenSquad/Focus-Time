@@ -48,19 +48,7 @@
    
       <h1>Sessions</h1>
        <div class="row" id="sessions" >
-            <ul class="collapsible">
-                    <li>
-                      <div class="collapsible-header collapsible-header-session">First</div>
-                      <div class="collapsible-body collapsible-body-session"></div>
-                    </li>
-                    <li>
-                      <div class="collapsible-header collapsible-header-session">Second</div>
-                      <div class="collapsible-body collapsible-body-session"></div>
-                    </li>
-                    <li>
-                      <div class="collapsible-header collapsible-header-session">Third</div>
-                      <div class="collapsible-body collapsible-body-session"></div>
-                    </li>
+            <ul class="collapsible" id="collapse-sessions">
                   </ul>
             <a class="btn-floating btn-large waves-effect waves-light cyan darken-2 btn modal-trigger" href="#new-session"><i class="material-icons">add</i></a>
 </div>      
@@ -118,29 +106,29 @@
             <h3>Creating a new Session</h3>
                 <form><div class="input-field col s12">
                         <i class="material-icons prefix">textsms</i>
-                                <input type="text" id="autocomplete-input" class="autocomplete">
+                                <input id="name-session" type="text" id="autocomplete-input" class="autocomplete">
                                 <label for="autocomplete-input">Name</label>
                                 <div>
                                 
                                 </div>
                         <div class="input-field col s12">
-                                  <textarea id="textarea1" class="materialize-textarea"></textarea>
-                                  <label for="textarea1">Concrened websites</label>
+                                  <textarea id="websites-session" class="materialize-textarea"></textarea>
+                                  <label for="textarea1">Concerned websites</label>
                                 </div>
                                 </div>
                                 <div class="input-field col s12">
-                                          <textarea id="textarea1" class="materialize-textarea"></textarea>
+                                          <textarea id="whitelist-session" class="materialize-textarea"></textarea>
                                           <label for="textarea1">White List</label>
                                         </div>
                                 <div class="input-field col s12">
-                                  <textarea id="textarea1" class="materialize-textarea"></textarea>
+                                  <textarea id="blacklist-session" class="materialize-textarea"></textarea>
                                   <label for="textarea1">Black List</label>
                                 </div>
                                 Timer<br/>
                                 <p class="range-field">
-                            <input type="range" id="test5" min="0" max="100" />
+                            <input type="range" id="timer-session" min="0" max="100" />
                               </p>
-                              </div><a class="waves-effect waves-light  cyan darken-2 center-align btn">button</a></form>
+                              </div><a class="waves-effect waves-light  cyan darken-2 center-align btn" id="button-new-session">button</a></form>
         </div>
       </div>
           

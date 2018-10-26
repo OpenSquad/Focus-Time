@@ -1,7 +1,21 @@
-
+class session{
+    constructor(name,timer,blacklist,whitelist)
+    {
+        this.name=name;
+        this.timer=timer;
+        this.blacklist=blacklist;
+        this.whitelist=whitelist;
+        this.status="activated"
+    }
+    permited(site)
+    {return true;}
+}
   // Called when the user clicks on the browser action.
 
-
+var sessions = []
+var activesession;
+var activebookmark;
+var warnings=[];
   // chrome.tabs.create({ url: chrome.runtime.getURL("dashboard/dashboard.html") });
 
 
@@ -23,6 +37,14 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
     {
          getMoreHistory(function(hist){chrome.runtime.sendMessage({items: hist});});
 
+    }
+    if(message.session)
+    {
+        sessions.push(new session(message.session.name,message.session.timer,message.session.blacklist,message.session.whitelist))
+    }
+    if(message.getsessions)
+    {
+        chrome.runtime.sendMessage({sessions:sessions});
     }
     if(message.storage)
     {
