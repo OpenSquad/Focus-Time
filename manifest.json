@@ -1,7 +1,7 @@
 {
-    "name" :"ProdMania",
+    "name" :"Focus Time",
     "version" :"1.0",
-    "description" :"Make me prod",
+    "description" :"Make me productive and more healthly on the web",
     "manifest_version":2,
     "web_accessible_resources": [
         "data/info.json"
