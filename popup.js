@@ -55,12 +55,18 @@ var createNewTaskElement=function(taskString){
 
     label.innerText=taskString;
 
+    // function fragile(callback){ var lilVar=20;
+    // for (var i=0;i<lilVar.length;i++){
+    // 	var labeler="tough"+i;
+    
+    // }	callback(labeler);}
+
     //Each elements, needs appending
     checkBox.type="checkbox";
-    checkBox.id="tough"
-    checkBox.className="berouit"
+    checkbox.id=labeler
+    checkBox.className="berouit";
     editInput.type="text";
-    label.for="tough"
+    label.setAttribute("for",labeler);
 
     editButton.innerText="Edit";//innerText encodes special characters, HTML does not.
     editButton.className="edit btn-small zre9 byed padderul";
@@ -216,7 +222,7 @@ var instances = M.AutoInit();
 // ************ message**********************\\
 var sessionCrt=document.getElementById('sessionValue')
 
-chrome.runtime.sendMessage({actualSession:sessionCrt})
+chrome.runtime.sendMessage({actualsession:sessionCrt})
 
 
 
