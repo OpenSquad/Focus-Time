@@ -24,9 +24,9 @@ function move() {
     }
 }
 document.addEventListener('DOMContentLoaded', function() {
-    var link= document.getElementById('clickr');
-    //onclick
-    link.addEventListener('click',move);
+    var instances = M.AutoInit();
+    var sessionCrt=document.getElementById('sessionValue');
+    sessionCrt.onchange = function(){alert(sessionCrt.value);chrome.runtime.sendMessage({activatesession:sessionCrt.value});}
 });
 
 // *******  tout doux liste logic  *********\\
@@ -167,7 +167,7 @@ var ajaxRequest=function(){
 
 
 //Set the click handler to the addTask function.
-addButton.onclick=addTask;
+
 
 
 
@@ -189,7 +189,7 @@ var bindTaskEvents=function(taskListItem,checkBoxEventHandler){
 
 //cycle over incompleteTaskHolder ul list items
     //for each list item
-    for (var i=0; i<incompleteTaskHolder.children.length;i++){
+   /* for (var i=0; i<incompleteTaskHolder.children.length;i++){
 
         //bind events to list items chldren(tasksCompleted)
         bindTaskEvents(incompleteTaskHolder.children[i],taskCompleted);
@@ -202,7 +202,7 @@ var bindTaskEvents=function(taskListItem,checkBoxEventHandler){
     for (var i=0; i<completedTasksHolder.children.length;i++){
     //bind events to list items chldren(tasksIncompleted)
         bindTaskEvents(completedTasksHolder.children[i],taskIncomplete);
-    }
+    }*/
 
 
 
@@ -212,57 +212,34 @@ var bindTaskEvents=function(taskListItem,checkBoxEventHandler){
 //prevent creation of empty tasks.
 
 //Shange edit to save when you are in edit mode.
-document.getElementById('tough4').onchange=function(){var elem = document.getElementById("loadulation"); 
-    var width = 1;
-    var id = setInterval(frame, 10);
-    function frame() {
-        if (width >= 100) {
-            clearInterval(id);
-        } else {
-            width++; 
-            elem.style.width = width + '%'; 
-        }
-    }}
 // *****************************************\\
-var instances = M.AutoInit();
-// ************ message**********************\\
-var sessionCrt=document.getElementById('sessionValue');
-sessionCrt.onchange = function(){chrome.runtime.sendMessage({activatesession:sessionCrt.value});}
 
-chrome.runtime.sendMessage({getsessions:true});
-chrome.runtime.sendMessage({getactivesession:true});
+// ************ message**********************\\
+var sent=false;
+
+
+
+chrome.runtime.sendMessage({getsessions2:true});
 chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
+for(var i in message.sessions2){if(message.sessions2[i]===undefined){return;}}
     var sessionCrt=document.getElementById('sessionValue');
-    if(message.sessions!==undefined)
+    if(message.sessions2!==undefined && !sent)
     {
-        for(var i in message.sessions)
+    	sent=true;
+    	console.log("MESSAGE SESSIONS2"+message.sessions2);
+        for(var i in message.sessions2)
         {
             var option=document.createElement("option");
-            option.text=message.sessions[i].name;
-            option.value=message.sessions[i].name;
+            option.text=message.sessions2[i].name;
+            option.value=message.sessions2[i].name;
             sessionCrt.add(option);
         }
     }
-    if(message.actsession!==undefined)
-    {
-        var sto=function(sessionCrt, message.actsession) {
-            for (var i=0; i<sessionCrt.length;i++) {
-                if (sessionCrt[i].childNodes[0].nodeValue === message.actsession){
-                    return i;
-                }
-            }
-            return undefined;
-        }
-        if(sto!==undefined)
-        {
-        sessionCrt.selectedIndex(sto);
     }
-    else{
-        sessionCrt.selectedIndex(1);
-    }
-    }
-  
-});
+);
+
+
+
 
 
 document.addEventListener('DOMContentLoaded', function(){
@@ -270,7 +247,6 @@ document.addEventListener('DOMContentLoaded', function(){
   junk.onclick=function(){chrome.tabs.create({url: "dashboard/dashboard.html"});}
 
 })
-
 
 	
 

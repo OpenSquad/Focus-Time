@@ -165,7 +165,7 @@ function insertAllSessions()
 function insertSession(session){
     var main=document.getElementById("collapse-sessions");
     var html="<li>"+
-    "<div class=\"collapsible-header collapsible-header-session\" style=\"justify-content:space-between;\">"+session.name+"<a href=\"#!\" class=\"right secondary-content\"><i\ class=\"material-icons\">grade</i></a></div>\
+    "<div class=\"collapsible-header collapsible-header-session\" style=\"justify-content:space-between;\">"+session.name+"</div>\
     <div class=\"collapsible-body collapsible-body-session\"> \
  <form><div class=\"input-field col s12\">\
 <i class=\"material-icons prefix\">textsms</i>\

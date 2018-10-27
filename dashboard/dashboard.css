@@ -1,8 +1,20 @@
 #bars
 {
-    font-size: 30px;
+    font-size: 10px;
+
 }
 #statics-card
 {
-padding:30px;
+	padding: 30px;
+}
+
+body{
+font-family: 'Krub', sans-serif;
+	background-color: #b0bec5;
+}
+
+#conteneur
+{
+	background-color: white;
+	padding:100px;
 }

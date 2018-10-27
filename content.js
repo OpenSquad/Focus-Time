@@ -2,7 +2,6 @@
 
     chrome.storage.sync.get(['count'], function(result) {
         saveChanges(2);     
-
         chrome.runtime.sendMessage({closeThis: location.href});
       });
 
