@@ -215,11 +215,24 @@ var bindTaskEvents=function(taskListItem,checkBoxEventHandler){
 // *****************************************\\
 var instances = M.AutoInit();
 // ************ message**********************\\
-var sessionCrt=document.getElementById('sessionValue')
-sessionCrt.onchange = function(){chrome.runtime.sendMessage({activatesession:sessionCrt})}
+var sessionCrt=document.getElementById('sessionValue');
+sessionCrt.onchange = function(){chrome.runtime.sendMessage({activatesession:sessionCrt.value});}
 
-
-
+chrome.runtime.sendMessage({getsessions:true});
+chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
+    var sessionCrt=document.getElementById('sessionValue');
+    if(message.sessions!==undefined)
+    {
+        for(var i in message.sessions)
+        {
+            var option=document.createElement("option");
+            option.text=message.sessions[i].name;
+            option.value=message.sessions[i].name;
+            sessionCrt.add(option);
+        }
+    }
+  
+});
 
 
 document.addEventListener('DOMContentLoaded', function(){

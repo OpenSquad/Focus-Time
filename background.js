@@ -13,18 +13,20 @@ class session{
         {
             for(i in this.whitelist)
             {
-                if(this.whitelist[i].includes(site)) return true;
+                console.log("white : "+this.whitelist[i]);
+                if(this.whitelist[i].includes(site)) {return true;}
             }
         }
         if(this.blacklist.length>0)
         {
             for(i in this.blacklist)
             {
-                if(this.blacklist[i].includes(site)) return false;
+                console.log("black : "+this.blacklist);
+                if(this.blacklist.includes("google.com")) {return false;}
             }
         }
-        if(this.blacklist.length>0) return true;
-        if(this.whitelist.length>0) return false;
+        if(this.blacklist.length>0) {return true;}
+        if(this.whitelist.length>0) {return false;}
     }
 }
 
@@ -64,12 +66,12 @@ class bookmark{
 
 var sessions = [];
 var bookmarks = [];
-var activesession;
+var activesession=new session("secret",35,["google.com"],"");
 var activebookmark;
 var warnings=[];
 function Permited(site)
 {
-    return (activesession.permited(site)&&activebookmark.permited(site));
+    return (activesession.permited(site));
 }
   // chrome.tabs.create({ url: chrome.runtime.getURL("dashboard/dashboard.html") });
 
@@ -90,7 +92,11 @@ function Permited(site)
 chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
     if(message.activatesession!==undefined)
     {
-        activesession=message.activatesession;
+        for(var i in sessions)
+        {
+            if(sessions[i].name===message.activatesession) activesession=sessions[i];
+        }
+
     }
     if(message.historic)
     {
@@ -115,19 +121,17 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
     if(message.storage)
     {
         saveData('key',3,function(){
-            getData('key',function(result){chrome.runtime.sendMessage({key:result.key})})
-        })
+            getData('key',function(result){chrome.runtime.sendMessage({key:result.key})});c
+        });
     }
     
     if(message.closeThis!==undefined) 
     {
-        if(Permited(message.closeThis)==false)
-        {
-        chrome.tabs.remove(sender.tab.id);
+        if(Permited(message.closeThis)===false) {chrome.tabs.remove(sender.tab.id);}
     }
         
     }
-  });
+  );
 
 
 
