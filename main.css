@@ -1,8 +1,9 @@
-/*button {
-    height: 30px;
-    width: 30px;
-    outline: none;
-  }*/
+button.edit {
+  float: right; !important;
+  }
+button.delete {
+  float: right !important;
+  }
 .longer {
 	margin-top: 5px;
 }
@@ -106,6 +107,21 @@ label[for='new-task'] {
   text-transform: uppercase !important;
   opacity: 0.6 !important;
 }
+label[for='tough'] {
+  float: left !important;
+}
+label[for='tough1'] {
+  float: left !important;
+}
+label[for='tough2'] {
+  float: left !important;
+}
+label[for='tough3'] {
+  float: left !important;
+}
+label[for='tough4'] {
+  float: left !important;
+}
 input[type="text"] {
   margin: 0 !important;
   font-size: 18px !important;
@@ -178,5 +194,10 @@ ul li.editMode label {
   display:none !important;
 }
 	
+  .spacebetween
+  {
+    justify-content: space-between;
+  }
+
 /**************************/
 border:2px dotted #00f;display:block;background:#ff0000;

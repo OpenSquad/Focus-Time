@@ -10,7 +10,12 @@ alert("Site : "+tab.url);
   });
 
 };
-function move() {
+
+document.addEventListener('DOMContentLoaded', function() {
+    var instances = M.AutoInit();
+    var sessionCrt=document.getElementById('sessionValue');
+    sessionCrt.onchange = function(){alert(sessionCrt.value);chrome.runtime.sendMessage({activatesession:sessionCrt.value});}
+    document.getElementById("tough4").onchange=function(){
     var elem = document.getElementById("loadulation"); 
     var width = 1;
     var id = setInterval(frame, 10);
@@ -23,10 +28,6 @@ function move() {
         }
     }
 }
-document.addEventListener('DOMContentLoaded', function() {
-    var instances = M.AutoInit();
-    var sessionCrt=document.getElementById('sessionValue');
-    sessionCrt.onchange = function(){alert(sessionCrt.value);chrome.runtime.sendMessage({activatesession:sessionCrt.value});}
 });
 
 // *******  tout doux liste logic  *********\\
@@ -189,7 +190,7 @@ var bindTaskEvents=function(taskListItem,checkBoxEventHandler){
 
 //cycle over incompleteTaskHolder ul list items
     //for each list item
-   /* for (var i=0; i<incompleteTaskHolder.children.length;i++){
+    for (var i=0; i<incompleteTaskHolder.children.length;i++){
 
         //bind events to list items chldren(tasksCompleted)
         bindTaskEvents(incompleteTaskHolder.children[i],taskCompleted);
@@ -202,7 +203,7 @@ var bindTaskEvents=function(taskListItem,checkBoxEventHandler){
     for (var i=0; i<completedTasksHolder.children.length;i++){
     //bind events to list items chldren(tasksIncompleted)
         bindTaskEvents(completedTasksHolder.children[i],taskIncomplete);
-    }*/
+    }
 
 
 
