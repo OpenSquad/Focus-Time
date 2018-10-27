@@ -219,6 +219,7 @@ var sessionCrt=document.getElementById('sessionValue');
 sessionCrt.onchange = function(){chrome.runtime.sendMessage({activatesession:sessionCrt.value});}
 
 chrome.runtime.sendMessage({getsessions:true});
+chrome.runtime.sendMessage({getactivesession:true});
 chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
     var sessionCrt=document.getElementById('sessionValue');
     if(message.sessions!==undefined)
@@ -230,6 +231,24 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
             option.value=message.sessions[i].name;
             sessionCrt.add(option);
         }
+    }
+    if(message.actsession!==undefined)
+    {
+        var sto=function(sessionCrt, message.actsession) {
+            for (var i=0; i<sessionCrt.length;i++) {
+                if (sessionCrt[i].childNodes[0].nodeValue === message.actsession){
+                    return i;
+                }
+            }
+            return undefined;
+        }
+        if(sto!==undefined)
+        {
+        sessionCrt.selectedIndex(sto);
+    }
+    else{
+        sessionCrt.selectedIndex(1);
+    }
     }
   
 });

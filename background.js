@@ -66,7 +66,7 @@ class bookmark{
 
 var sessions = [];
 var bookmarks = [];
-var activesession=new session("secret",35,["google.com"],"");
+var activesession;
 var activebookmark;
 var warnings=[];
 function Permited(site)
@@ -90,11 +90,17 @@ function Permited(site)
 
 
 chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
+    var da;
     if(message.activatesession!==undefined)
     {
         for(var i in sessions)
         {
-            if(sessions[i].name===message.activatesession) activesession=sessions[i];
+            if(sessions[i].name===message.activatesession) {activesession=sessions[i];    
+                setTimeout(function () {
+                if (newState == -1) {
+                   var activatesession;
+                }
+            }, sessions[i].timer*1000);}
         }
 
     }
@@ -102,13 +108,17 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
     {
          getMoreHistory(function(hist){chrome.runtime.sendMessage({items: hist});});
     }
+    if(message.getactivesession)
+    {
+        chrome.runtime.sendMessage({actsession:activesession.name});
+    }
     if(message.session)
     {
-        sessions.push(new session(message.session.name,message.session.timer,message.session.blacklist,message.session.whitelist))
+        sessions.push(new session(message.session.name,message.session.timer,message.session.blacklist.split(','),message.session.whitelist.split(',')))
     }
     if(message.bookmark)
     {
-        bookmarks.push(new bookmark(message.bookmark.name,message.bookmark.timer,message.bookmark.blacklist,message.bookmark.whitelist,message.bookmark.concerned))
+        bookmarks.push(new bookmark(message.bookmark.name,message.bookmark.timer,message.bookmark.blacklist.split(','),message.bookmark.whitelist.split(','),message.bookmark.concerned.split(',')))
     }
     if(message.getsessions)
     {
